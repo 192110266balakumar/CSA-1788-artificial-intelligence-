@@ -1,0 +1,83 @@
+PROGRAM:
+
+class Toy:
+  def __init__(self,a,b,c,d):
+    self.toyId=a
+    self.toyBrand=b
+    self.toyType=c
+    self.price=d
+    
+class showRoom:
+  def __init__(self,lst):
+    self.toyList=lst
+  
+  def display(self):
+    for i in self.toyList:
+      print(i.toyId,i.toyBrand,i.price)
+  
+  def updatePriceBasedOnBrandAndType(self,brand,type,weight):
+    res=int(0)
+    for i in self.toyList:
+      if i.toyBrand.lower()==brand.lower() and i.toyType.lower()==type.lower():
+        i.price+=(i.price*weight/100)
+        res+=1
+        
+    if res:
+      return True
+    else:
+      return False
+        
+  def countToysByPrice(self):
+    res=int(0)
+    avg=int(0)
+    for i in self.toyList:
+      avg+=i.price
+    avg=avg/len(self.toyList)
+    
+    for i in self.toyList:
+      if i.price>avg:
+        res+=1
+    return res
+        
+    
+if __name__=="__main__":
+  toyLst=list()
+  n=int(input())
+  for i in range(n):
+    a=input()
+    b=input()
+    c=input()
+    d=int(input())
+    toyLst.append(Toy(a,b,c,d))
+  toys=showRoom(toyLst)
+  
+  brand=input()
+  type=input()
+  weight=int(input())
+  
+  print("Price list of Toys:")
+  toys.display()
+  
+  if toys.updatePriceBasedOnBrandAndType(brand,type,weight):
+    print("Updated Price List list of Toys:")
+    toys.display()
+  else:
+    print("No Toy found")
+  print(toys.countToysByPrice())
+  
+
+OUTPUT;
+
+Price list of Toys:
+011 Leo 250
+131 Ledo 350
+021 Leo 270
+023 Leo 400
+060 funkCool 350
+Updated Price List list of Toys:
+011 Leo 275.0
+131 Ledo 350
+021 Leo 270
+023 Leo 440.0
+060 funkCool 350
+3
