@@ -1,0 +1,18 @@
+remove_dups([],[]).
+
+remove_dups([H|T], [H|T1]) :-
+    T \= [H|_],
+    remove_dups(T, T1).
+
+remove_dups([H,H|T], L) :-
+    remove_dups([H|T], L).
+    
+    takeout(X,[X|R],R).
+takeout(X,[F|Fs],[F|S]):- takeout(X,Fs,S).
+
+
+
+output:
+rem([X],[X]).
+rem([H|T],Z):- member(H,T) , takeout(H,[H|T],L) ,!, rem(L,Z).
+rem([H|T],[H|Z]):- \+member(H,T) , rem(T,Z).
