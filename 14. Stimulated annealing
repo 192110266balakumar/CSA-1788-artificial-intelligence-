@@ -1,0 +1,51 @@
+program:
+
+# convex unimodal optimization function
+from numpy import arange
+from matplotlib import pyplot
+
+# objective function
+def objective(x):
+	return x[0]**2.0
+
+# define range for input
+r_min, r_max = -5.0, 5.0
+# sample input range uniformly at 0.1 increments
+inputs = arange(r_min, r_max, 0.1)
+# compute targets
+results = [objective([x]) for x in inputs]
+# create a line plot of input vs result
+pyplot.plot(inputs, results)
+# define optimal input value
+x_optima = 0.0
+# draw a vertical line at the optimal input
+pyplot.axvline(x=x_optima, ls='--', color='red')
+# show the plot
+pyplot.show()
+
+
+
+output:
+
+>34 f([-0.78753544]) = 0.62021
+>35 f([-0.76914239]) = 0.59158
+>37 f([-0.68574854]) = 0.47025
+>39 f([-0.64797564]) = 0.41987
+>40 f([-0.58914623]) = 0.34709
+>41 f([-0.55446029]) = 0.30743
+>42 f([-0.41775702]) = 0.17452
+>43 f([-0.35038542]) = 0.12277
+>50 f([-0.15799045]) = 0.02496
+>66 f([-0.11089772]) = 0.01230
+>67 f([-0.09238208]) = 0.00853
+>72 f([-0.09145261]) = 0.00836
+>75 f([-0.05129162]) = 0.00263
+>93 f([-0.02854417]) = 0.00081
+>144 f([0.00864136]) = 0.00007
+>149 f([0.00753953]) = 0.00006
+>167 f([-0.00640394]) = 0.00004
+>225 f([-0.00044965]) = 0.00000
+>503 f([-0.00036261]) = 0.00000
+>512 f([0.00013605]) = 0.00000
+Done!
+f([0.00013605]) = 0.000000
