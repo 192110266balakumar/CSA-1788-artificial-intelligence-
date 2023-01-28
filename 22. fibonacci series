@@ -1,0 +1,12 @@
+connection(X, Y) :-
+        connection(X, Z),
+        connection(Z, Y).
+connection(X, Y) :-
+        connection(Y, X).
+
+connection('Amsterdam', 'Schiphol').
+connection('Amsterdam', 'Haarlem').
+connection('Schiphol', 'Leiden').
+connection('Haarlem', 'Leiden').
+
+  Exception: (6,339,203) connection('Amsterdam', _12679396) ? 
