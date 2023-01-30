@@ -1,0 +1,17 @@
+PROGRAM;
+
+population(AttList) :: {
+super(variable) a
+name(population)
+output_default(hystogram, [time, place, sex, age])
+value(Tuple) :- /* external interface */
+self :: value(Tuple, [])
+value(Tuple,Inst) :- /* internal interface */
+super <: value(httList, Tuple, Inst)
+value(Op, Tuple, Inst) :- /* Op is a statistical operator */
+super <: value(AttList, Op, Tuple, Inst)
+/* attribute order name and type (granularity) */
+attribute(i, place, city)
+attribute(2, age, year)
+attribute(B, sex, sex)
+attribute(4, time, year)
