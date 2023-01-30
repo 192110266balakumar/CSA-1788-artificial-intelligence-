@@ -1,0 +1,27 @@
+PROGRAM;
+
+get_frame - retrieves attribute values for a frame;
+
+add_frame - adds or updates attribute values for a frame;
+
+del_frame - deletes attribute values from a frame.
+
+
+
+
+OUTPUT;
+
+?- get_frame(dennis, [weight-W, height-H]).
+
+W = 155
+
+H = 5-10
+?- add_frame(mary, [sport-rugby]).
+?- get_frame(X, [ako-woman, sport-rugby]).
+
+X = mary ;
+
+X = kelly;
+in_common(M, W, H) :-
+get_frame(M, [ako-man, hobby-H]),
+get_frame(W, [ako-woman, hobby-H]).
