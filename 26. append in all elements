@@ -1,0 +1,17 @@
+PROGRAM;
+
+myAppend(0, L) :- append([],[],L).
+myAppend(N,L) :-  append([N], [], L). N1 is N - 1, myAppend(N1, L). 
+
+
+
+OUTPUT;
+
+51 ?- myAppend(0,L).
+L = [] ;
+false.
+
+52 ?- myAppend(4,L).
+L = [4] . <-------------- was expecting [4, 3, 2, 1]
+
+53 ?-
